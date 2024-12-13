@@ -175,13 +175,17 @@ void BuddyMove(GameObject* go, System* system) {
 				go->buddy.Acceleration.y = 0.0f;
 				go->buddy.Velocity.y = 0.0f;
 				// 相棒を進ませる
-				go->buddy.Pos.y += go->buddy.speed;
+				if (go->buddy.IsGround) {
+					go->buddy.Pos.y += go->buddy.speed;
+				}
 			}
 			else if (go->buddy.gravity == RIGHT) {
 				go->buddy.Acceleration.y = 0.0f;
 				go->buddy.Velocity.y = 0.0f;
 				// 相棒を進ませる
-				go->buddy.Pos.y -= go->buddy.speed;
+				if (go->buddy.IsGround) {
+					go->buddy.Pos.y -= go->buddy.speed;
+				}
 			}
 
 			go->buddy.LeftTop.x = int(go->buddy.Pos.x - go->buddy.width / 2) / BLOCKSIZE;
@@ -275,12 +279,16 @@ void BuddyMove(GameObject* go, System* system) {
 			else if (go->buddy.gravity == UP) {
 				go->buddy.Acceleration.x = 0.0f;
 				go->buddy.Velocity.x = 0.0f;
-				go->buddy.Pos.x -= go->buddy.speed;
+				if (go->buddy.IsGround) {
+					go->buddy.Pos.x -= go->buddy.speed;
+				}
 			}
 			else if (go->buddy.gravity == DOWN) {
 				go->buddy.Acceleration.x = 0.0f;
 				go->buddy.Velocity.x = 0.0f;
-				go->buddy.Pos.x += go->buddy.speed;
+				if (go->buddy.IsGround) {
+					go->buddy.Pos.x += go->buddy.speed;
+				}
 			}
 
 			go->buddy.LeftTop.x = int(go->buddy.Pos.x - go->buddy.width / 2) / BLOCKSIZE;
