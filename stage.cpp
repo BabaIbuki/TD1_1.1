@@ -20,7 +20,7 @@ void StageInitialize(GameObject* go) {
 
 			go->MapChip[i][j].IsPaint = false;
 
-		
+
 			go->MapChip[i][j].CanPaint = true;
 
 			go->MapChip[i][j].degree = 0.0f;
@@ -200,16 +200,16 @@ void stage2(GameObject* go) {
 void stage3(GameObject* go) {
 	int map[VerBlockNum][HolBlockNum] = {
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		1,5,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,1,
+		1,5,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,1,
 		1,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,1,
-		1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,1,
-		1,2,2,2,2,2,2,2,2,2,2,3,3,3,4,3,3,3,1,
-		1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,2,3,4,3,3,3,1,
+		1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,1,
+		1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,1,
 		1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,1,
-		1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,1,
-		1,2,2,2,2,2,2,3,3,3,4,3,3,3,3,3,3,3,1,
-		1,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,1,
-		1,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,1,
+		1,2,2,2,2,2,2,2,2,3,4,3,3,3,3,3,3,3,1,
+		1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,1,
+		1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,1,
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 	};
 
@@ -246,13 +246,13 @@ void stage4(GameObject* go) {
 	int map[VerBlockNum][HolBlockNum] = {
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,1,2,1,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,1,4,1,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,1,1,1,2,1,1,1,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,1,2,2,2,1,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,1,1,2,4,2,1,1,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
 		1,2,2,2,2,2,2,4,2,5,2,4,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,1,1,1,2,1,1,1,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,1,2,1,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,1,2,1,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,1,1,2,2,2,1,1,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,1,2,2,2,1,2,2,2,2,2,2,1,
 		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
 		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -384,6 +384,62 @@ void stage6(GameObject* go) {
 void stage7(GameObject* go) {
 	int map[VerBlockNum][HolBlockNum] = {
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+		1,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,4,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,4,2,2,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+	};
+
+	for (int i = 0; i < VerBlockNum; i++) {
+		for (int j = 0; j < HolBlockNum; j++) {
+			go->MapChip[i][j].Map = map[i][j];
+
+			// マップ番号が3ならIsPaintをtrueにする
+			if (go->MapChip[i][j].Map == 3) {
+				go->MapChip[i][j].IsPaint = true;
+			} else {
+				go->MapChip[i][j].IsPaint = false;
+			}
+
+			// 星の取得状況をリセット
+			if (go->MapChip[i][j].Map == 4) {
+				go->MapChip[i][j].star.isGet = false;
+			}
+
+		}
+	}
+
+	// プレイヤーの座標
+	go->player.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 相棒の座標
+	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の座標
+	go->enemy[0].Pos.x = 17 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[0].Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[0].gravity = RIGHT;
+	go->enemy[0].IsAlive = true;
+
+	go->enemy[1].Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[1].Pos.y = 1 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[1].gravity = UP;
+	go->enemy[1].IsAlive = true;
+
+}
+
+void stage8(GameObject* go) {
+	int map[VerBlockNum][HolBlockNum] = {
+		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 		1,1,3,3,3,2,4,2,3,3,3,2,2,2,3,3,3,1,1,
 		1,1,3,3,3,2,2,2,3,3,3,2,2,2,3,3,3,1,1,
 		1,1,3,3,3,2,2,2,3,3,3,2,2,2,3,3,3,1,1,
@@ -439,19 +495,21 @@ void stage7(GameObject* go) {
 
 }
 
-void stage8(GameObject* go) {
+
+
+void stage9(GameObject* go) {
 	int map[VerBlockNum][HolBlockNum] = {
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		1,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,2,1,
 		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,2,2,2,2,4,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,4,2,2,2,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
-		1,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,2,2,2,1,
+		1,2,2,2,3,3,3,2,2,2,2,2,3,3,3,4,2,2,1,
+		1,2,2,2,3,3,3,2,2,2,2,2,3,3,3,2,2,2,1,
+		1,2,2,4,3,3,3,2,2,2,2,2,3,3,3,2,2,2,1,
+		1,3,3,3,1,1,1,1,1,1,1,1,1,1,1,3,3,3,1,
+		1,3,3,3,2,2,2,2,3,3,3,2,2,2,2,3,3,3,1,
+		1,3,3,3,2,2,2,2,3,3,3,2,2,2,2,3,3,3,1,
+		1,3,3,3,2,2,2,2,3,4,3,2,2,2,2,3,3,3,1,
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 	};
 
@@ -475,27 +533,74 @@ void stage8(GameObject* go) {
 	}
 
 	// プレイヤーの座標
-	go->player.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->player.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->player.Pos.y = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
 
 	// 敵の座標
-	go->enemy[0].Pos.x = 17 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[0].Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[0].gravity = RIGHT;
-	go->enemy[0].IsAlive = true;
+	go->enemy[0].Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[0].Pos.y = 1 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[0].gravity = UP;
 
-	go->enemy[1].Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[1].Pos.y = 1 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[1].Pos.x = 14 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[1].Pos.y = 8 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->enemy[1].gravity = UP;
-	go->enemy[1].IsAlive = true;
+
+	for (int i = 0; i < 2; ++i) {
+		go->enemy[i].IsAlive = true;
+	}
 
 }
 
-void stage9(GameObject* go) {
+void stage10(GameObject* go) {
+	int map[VerBlockNum][HolBlockNum] = {
+		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+		1,3,3,3,3,3,4,6,8,8,8,3,2,2,5,2,2,3,1,
+		1,3,3,3,3,3,2,2,8,8,8,3,2,2,2,2,2,3,1,
+		1,3,3,3,3,3,3,3,8,8,8,3,2,2,2,2,2,3,1,
+		1,3,3,3,3,3,3,3,8,8,8,3,2,2,2,2,2,3,1,
+		1,3,3,4,3,3,3,3,8,8,8,3,3,3,3,3,3,3,1,
+		1,3,3,3,3,3,3,3,8,8,8,3,3,3,3,3,4,3,1,
+		1,3,2,2,2,2,2,3,8,8,8,3,3,3,3,3,3,3,1,
+		1,3,2,2,2,2,2,3,8,8,8,3,3,3,3,3,3,3,1,
+		1,3,2,2,2,2,2,3,8,8,8,2,2,3,3,3,3,3,1,
+		1,3,2,2,2,2,2,3,8,8,8,7,2,3,3,3,3,3,1,
+		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+	};
+
+	for (int i = 0; i < VerBlockNum; i++) {
+		for (int j = 0; j < HolBlockNum; j++) {
+			go->MapChip[i][j].Map = map[i][j];
+
+			// マップ番号が3ならIsPaintをtrueにする
+			if (go->MapChip[i][j].Map == 3) {
+				go->MapChip[i][j].IsPaint = true;
+			} else {
+				go->MapChip[i][j].IsPaint = false;
+			}
+
+			// 星の取得状況をリセット
+			if (go->MapChip[i][j].Map == 4) {
+				go->MapChip[i][j].star.isGet = false;
+			}
+
+		}
+	}
+
+	// プレイヤーの座標
+	go->player.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 相棒の座標
+	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+
+}
+
+void stage11(GameObject* go) {
 	int map[VerBlockNum][HolBlockNum] = {
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 		1,3,3,3,3,3,3,3,3,3,4,3,3,3,3,3,3,3,1,
@@ -570,142 +675,7 @@ void stage9(GameObject* go) {
 
 }
 
-void stage10(GameObject* go) {
-	int map[VerBlockNum][HolBlockNum] = {
-		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		1,3,3,3,3,3,4,6,8,8,8,3,2,2,5,2,2,3,1,
-		1,3,3,3,3,3,2,2,8,8,8,3,2,2,2,2,2,3,1,
-		1,3,3,3,3,3,3,3,8,8,8,3,2,2,2,2,2,3,1,
-		1,3,3,3,3,3,3,3,8,8,8,3,2,2,2,2,2,3,1,
-		1,3,3,4,3,3,3,3,8,8,8,3,3,3,3,3,3,3,1,
-		1,3,3,3,3,3,3,3,8,8,8,3,3,3,3,3,4,3,1,
-		1,3,2,2,2,2,2,3,8,8,8,3,3,3,3,3,3,3,1,
-		1,3,2,2,2,2,2,3,8,8,8,3,3,3,3,3,3,3,1,
-		1,3,2,2,2,2,2,3,8,8,8,2,2,3,3,3,3,3,1,
-		1,3,2,2,2,2,2,3,8,8,8,7,2,3,3,3,3,3,1,
-		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	};
-
-	for (int i = 0; i < VerBlockNum; i++) {
-		for (int j = 0; j < HolBlockNum; j++) {
-			go->MapChip[i][j].Map = map[i][j];
-
-			// マップ番号が3ならIsPaintをtrueにする
-			if (go->MapChip[i][j].Map == 3) {
-				go->MapChip[i][j].IsPaint = true;
-			} else {
-				go->MapChip[i][j].IsPaint = false;
-			}
-
-			// 星の取得状況をリセット
-			if (go->MapChip[i][j].Map == 4) {
-				go->MapChip[i][j].star.isGet = false;
-			}
-
-		}
-	}
-
-	// プレイヤーの座標
-	go->player.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
-
-	// 相棒の座標
-	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
-
-}
-
-void stage11(GameObject* go) {
-	int map[VerBlockNum][HolBlockNum] = {
-		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		1,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,
-		1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,2,2,2,1,
-		1,2,2,2,3,3,3,2,2,2,2,2,3,3,3,4,2,2,1,
-		1,2,2,2,3,3,3,2,2,2,2,2,3,3,3,2,2,2,1,
-		1,2,2,4,3,3,3,2,2,2,2,2,3,3,3,2,2,2,1,
-		1,3,3,3,1,1,1,1,1,1,1,1,1,1,1,3,3,3,1,
-		1,3,3,3,2,2,2,2,3,3,3,2,2,2,2,3,3,3,1,
-		1,3,3,3,2,2,2,2,3,3,3,2,2,2,2,3,3,3,1,
-		1,3,3,3,2,2,2,2,3,4,3,2,2,2,2,3,3,3,1,
-		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	};
-
-	for (int i = 0; i < VerBlockNum; i++) {
-		for (int j = 0; j < HolBlockNum; j++) {
-			go->MapChip[i][j].Map = map[i][j];
-
-			// マップ番号が3ならIsPaintをtrueにする
-			if (go->MapChip[i][j].Map == 3) {
-				go->MapChip[i][j].IsPaint = true;
-			} else {
-				go->MapChip[i][j].IsPaint = false;
-			}
-
-			// 星の取得状況をリセット
-			if (go->MapChip[i][j].Map == 4) {
-				go->MapChip[i][j].star.isGet = false;
-			}
-
-		}
-	}
-
-	// プレイヤーの座標
-	go->player.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->player.Pos.y = 4 * BLOCKSIZE + BLOCKSIZE / 2;
-
-	// 相棒の座標
-	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
-
-}
-
 void stage12(GameObject* go) {
-	int map[VerBlockNum][HolBlockNum] = {
-		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		1,4,8,3,3,3,3,8,2,2,2,2,3,3,3,3,3,3,1,
-		1,3,8,3,8,3,3,2,2,5,2,2,3,3,3,3,3,3,1,
-		1,3,3,3,3,3,3,2,2,2,2,2,8,3,3,3,8,3,1,
-		1,3,3,3,3,8,8,8,8,8,8,8,8,8,3,3,3,3,1,
-		1,3,3,3,3,2,2,2,2,2,2,2,2,2,3,3,3,3,1,
-		1,3,3,3,3,2,2,2,2,2,2,2,2,2,3,3,3,3,1,
-		1,3,3,3,3,8,8,8,8,8,8,8,8,8,3,3,3,3,1,
-		1,3,8,3,3,3,3,3,3,4,3,8,3,3,3,3,3,3,1,
-		1,3,3,3,3,3,3,3,3,3,3,3,3,3,8,3,8,3,1,
-		1,3,3,3,3,8,3,3,3,3,3,3,3,3,3,3,8,4,1,
-		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	};
-
-	for (int i = 0; i < VerBlockNum; i++) {
-		for (int j = 0; j < HolBlockNum; j++) {
-			go->MapChip[i][j].Map = map[i][j];
-
-			// マップ番号が3ならIsPaintをtrueにする
-			if (go->MapChip[i][j].Map == 3) {
-				go->MapChip[i][j].IsPaint = true;
-			} else {
-				go->MapChip[i][j].IsPaint = false;
-			}
-
-			// 星の取得状況をリセット
-			if (go->MapChip[i][j].Map == 4) {
-				go->MapChip[i][j].star.isGet = false;
-			}
-
-		}
-	}
-
-	// プレイヤーの座標
-	go->player.Pos.x = 10 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->player.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
-
-	// 相棒の座標
-	go->buddy.Pos.x = 6 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
-
-}
-
-void stage13(GameObject* go) {
 	int map[VerBlockNum][HolBlockNum] = {
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 		1,2,2,2,2,2,2,1,2,5,2,1,2,2,3,3,2,2,1,
@@ -750,18 +720,67 @@ void stage13(GameObject* go) {
 
 }
 
+void stage13(GameObject* go) {
+	int map[VerBlockNum][HolBlockNum] = {
+		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+		1,4,8,3,3,3,3,8,2,2,2,2,3,3,3,3,3,3,1,
+		1,3,8,3,8,3,3,2,2,5,2,2,3,3,3,3,3,3,1,
+		1,3,3,3,3,3,3,2,2,2,2,2,8,3,3,3,8,3,1,
+		1,3,3,3,3,8,8,8,8,8,8,8,8,8,3,3,3,3,1,
+		1,3,3,3,3,2,2,2,2,2,2,2,2,2,3,3,3,3,1,
+		1,3,3,3,3,2,2,2,2,2,2,2,2,2,3,3,3,3,1,
+		1,3,3,3,3,8,8,8,8,8,8,8,8,8,3,3,3,3,1,
+		1,3,8,3,3,3,3,3,3,4,3,8,3,3,3,3,3,3,1,
+		1,3,3,3,3,3,3,3,3,3,3,3,3,3,8,3,8,3,1,
+		1,3,3,3,3,8,3,3,3,3,3,3,3,3,3,3,8,4,1,
+		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+	};
+
+	for (int i = 0; i < VerBlockNum; i++) {
+		for (int j = 0; j < HolBlockNum; j++) {
+			go->MapChip[i][j].Map = map[i][j];
+
+			// マップ番号が3ならIsPaintをtrueにする
+			if (go->MapChip[i][j].Map == 3) {
+				go->MapChip[i][j].IsPaint = true;
+			} else {
+				go->MapChip[i][j].IsPaint = false;
+			}
+
+			// 星の取得状況をリセット
+			if (go->MapChip[i][j].Map == 4) {
+				go->MapChip[i][j].star.isGet = false;
+			}
+
+		}
+	}
+
+	// プレイヤーの座標
+	go->player.Pos.x = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->player.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 相棒の座標
+	go->buddy.Pos.x = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の座標
+	go->enemy[0].Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[0].Pos.y = 8 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[0].IsAlive = true;
+
+}
 
 void stage14(GameObject* go) {
 	int map[VerBlockNum][HolBlockNum] = {
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 		1,2,2,2,2,2,2,2,2,8,2,2,2,2,2,2,2,2,1,
-		1,2,4,2,2,2,2,2,2,8,2,2,2,2,2,2,5,2,1,
+		1,2,4,2,2,2,2,2,2,8,2,4,2,2,2,2,5,2,1,
 		1,2,2,2,2,2,2,2,2,8,2,2,2,2,2,2,2,2,1,
 		1,8,8,8,8,2,2,2,2,8,2,2,2,2,8,8,8,8,1,
 		1,2,2,2,2,2,2,2,2,8,2,2,2,2,2,2,2,2,1,
-		1,2,2,2,2,2,2,2,2,8,2,2,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,8,2,2,2,2,2,2,4,2,1,
 		1,2,2,2,2,8,8,8,8,8,8,8,8,8,2,2,2,2,1,
-		1,2,2,2,2,2,2,4,2,8,2,4,2,2,2,2,2,2,1,
+		1,2,2,2,2,2,2,2,2,8,2,2,2,2,2,2,2,2,1,
 		1,2,2,2,2,2,2,2,2,8,2,2,2,2,2,2,2,2,1,
 		1,2,2,2,2,2,2,2,6,8,7,2,2,2,2,2,2,2,1,
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -798,6 +817,10 @@ void stage14(GameObject* go) {
 	go->enemy[0].Pos.x = 17 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->enemy[0].Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->enemy[0].IsAlive = true;
+
+	go->enemy[1].Pos.x = 2 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[1].Pos.y = 8 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[1].IsAlive = true;
 
 }
 
@@ -1102,8 +1125,7 @@ void StageDraw(GameObject* go) {
 					go->MapChip[0][0].color
 				);
 
-			}
-			else if (go->MapChip[i][j].Map == 2 || go->MapChip[i][j].Map == 3) {
+			} else if (go->MapChip[i][j].Map == 2 || go->MapChip[i][j].Map == 3) {
 
 				Novice::DrawQuad(
 					//左上
@@ -1376,12 +1398,10 @@ void BlockAnimationAngleControl(GameObject* go, int y, int x) {
 			if (go->MapChip[y][x].DecreaseFlag) {
 				go->MapChip[y][x].degree -= 4;
 			}
-		}
-		else {
+		} else {
 			go->MapChip[y][x].degree = 0.0f;
 		}
-	}
-	else {
+	} else {
 		go->MapChip[y][x].degree = 0.0f;
 		go->MapChip[y][x].theta = 0.0f;
 	}
@@ -1429,8 +1449,8 @@ void BlockAnimation(GameObject* go, Key* key) {
 			//選択されているブロック振動（回転）
 
 				//角度の増減・変換
-				BlockAnimationAngleControl(go, i, j);
-			
+			BlockAnimationAngleControl(go, i, j);
+
 
 			MakeRotatePos(&go->MapChip[i][j]);
 
