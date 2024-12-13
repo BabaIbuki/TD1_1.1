@@ -173,7 +173,7 @@ void BuddyMove(GameObject* go, System* system) {
 				go->buddy.Acceleration.y = 0.0f;
 				go->buddy.Velocity.y = 0.0f;
 				// 相棒を進ませる
-				if (go->buddy.IsGround) {
+				if (!go->buddy.IsAir) {
 					go->buddy.Pos.y += go->buddy.speed;
 				}
 			}
@@ -181,7 +181,7 @@ void BuddyMove(GameObject* go, System* system) {
 				go->buddy.Acceleration.y = 0.0f;
 				go->buddy.Velocity.y = 0.0f;
 				// 相棒を進ませる
-				if (go->buddy.IsGround) {
+				if (!go->buddy.IsAir) {
 					go->buddy.Pos.y -= go->buddy.speed;
 				}
 			}
@@ -277,14 +277,14 @@ void BuddyMove(GameObject* go, System* system) {
 			else if (go->buddy.gravity == UP) {
 				go->buddy.Acceleration.x = 0.0f;
 				go->buddy.Velocity.x = 0.0f;
-				if (go->buddy.IsGround) {
+				if (!go->buddy.IsAir) {
 					go->buddy.Pos.x -= go->buddy.speed;
 				}
 			}
 			else if (go->buddy.gravity == DOWN) {
 				go->buddy.Acceleration.x = 0.0f;
 				go->buddy.Velocity.x = 0.0f;
-				if (go->buddy.IsGround) {
+				if (!go->buddy.IsAir) {
 					go->buddy.Pos.x += go->buddy.speed;
 				}
 			}
