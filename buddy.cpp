@@ -152,7 +152,6 @@ void BuddyMove(GameObject* go, System* system) {
 
 			if (go->buddy.gravity == UP) {
 				go->buddy.Acceleration.y = -0.5f;
-				go->buddy.Pos.y += go->buddy.Velocity.y;
 				go->buddy.Velocity.y += go->buddy.Acceleration.y;
 				//すり抜けんな！すり抜けんな！すり抜けんな！現世(こっち)で遊ぼう１２３４
 				if (go->buddy.Velocity.y < -10.0f) {
@@ -163,7 +162,6 @@ void BuddyMove(GameObject* go, System* system) {
 			else if (go->buddy.gravity == DOWN) {
 				//重力処理！君に決めた！！！
 				go->buddy.Acceleration.y = 0.5f;
-				go->buddy.Pos.y += go->buddy.Velocity.y;
 				go->buddy.Velocity.y += go->buddy.Acceleration.y;
 				//すり抜けんな！すり抜けんな！すり抜けんな！現世(こっち)で遊ぼう１２３４
 				if (go->buddy.Velocity.y > 10.0f) {
@@ -270,11 +268,11 @@ void BuddyMove(GameObject* go, System* system) {
 				//重力処理！君に決めた！！！
 				go->buddy.Acceleration.x = 0.5f;
 				go->buddy.Velocity.x += go->buddy.Acceleration.x;
-				go->buddy.Pos.x += go->buddy.Velocity.x;
 				//すり抜けんな！すり抜けんな！すり抜けんな！現世(こっち)で遊ぼう１２３４
 				if (go->buddy.Velocity.x > 10.0f) {
 					go->buddy.Velocity.x = 10.0f;
 				}
+				go->buddy.Pos.x += go->buddy.Velocity.x;
 			}
 			else if (go->buddy.gravity == UP) {
 				go->buddy.Acceleration.x = 0.0f;
