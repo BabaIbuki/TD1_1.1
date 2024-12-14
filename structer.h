@@ -2,6 +2,7 @@
 //ヘッダーファイルの読み込み
 #include<Novice.h>
 #include"define.h"
+#include"enum.h"
 
 /*============================================
 				基本クラス
@@ -167,6 +168,7 @@ struct Player : AllBaseInfo {
 	int predicitionBlockFrameCount;
 	int predicitionBlockAnimCount;
 	int select[VerBlockNum][HolBlockNum];
+	Direction direction;
 };
 
 struct Buddy : AllBaseInfo {
