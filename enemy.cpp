@@ -21,7 +21,7 @@ void EnemyInitialize(GameObject* go) {
 		go->enemy[i].Acceleration.x = 0.5f;
 		go->enemy[i].Acceleration.y = 0.5f;
 
-		go->enemy[i].speed = 3.0f;
+		go->enemy[i].speed = 4.0f;
 
 		//サイズの初期化
 		go->enemy[i].width = BLOCKSIZE;
@@ -56,7 +56,7 @@ void EnemyMoveGameInitialize(GameObject* go) {
 		go->enemy[i].Acceleration.x = 0.5f;
 		go->enemy[i].Acceleration.y = 0.5f;
 
-		go->enemy[i].speed = 3.0f;
+		go->enemy[i].speed = 4.0f;
 
 		//サイズの初期化
 		go->enemy[i].width = BLOCKSIZE;

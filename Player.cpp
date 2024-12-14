@@ -414,7 +414,9 @@ void PlayerAnimation(GameObject* go) {
 		go->player.frameCount = 0;
 	}
 
-	go->player.animCount = go->player.frameCount / 12;
+	if (go->player.frameCount < 59) {
+		go->player.animCount = go->player.frameCount / 6;
+	}
 
 	// 予測線のアニメーションの更新処理
 	if (go->player.predicitionBlockFrameCount < 59) {

@@ -33,45 +33,45 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Novice::Initialize(kWindowTitle, WindowWidth, WindowHeight);
 
 	//構造体の実体化
-	GameObject gameobject;
-	AllEffect alleffect;
-	Key key;
-	System system;
-	Audio audio;
+	GameObject* gameobject = new GameObject;
+	AllEffect* alleffect = new AllEffect;
+	Key* key = new Key;
+	System* system = new System;
+	Audio* audio = new Audio;
 
 	//構造体のアドレスを格納する変数の宣言
-	GameObject* p_gameobject = &gameobject;
-	AllEffect* p_alleffect = &alleffect;
-	Key* p_key = &key;
-	System* p_system = &system;
-	Audio* p_audio = &audio;
+	//GameObject* p_gameobject = &gameobject;
+	//AllEffect* p_alleffect = &alleffect;
+	//Key* p_key = &key;
+	//System* p_system = &system;
+	//Audio* p_audio = &audio;
 
 
 	//初期化関数
-	PlayerInitialize(p_gameobject);
-	BuddyInitialize(p_gameobject);
+	PlayerInitialize(gameobject);
+	BuddyInitialize(gameobject);
 	//StarInitialize(p_gameobject);
-	EnemyInitialize(p_gameobject);
-	StageInitialize(p_gameobject);
-	SystemInitialize(p_system);
-	Effectinitialize(p_alleffect);
+	EnemyInitialize(gameobject);
+	StageInitialize(gameobject);
+	SystemInitialize(system);
+	Effectinitialize(alleffect);
 
-	StageSelectInitialize(p_system);
+	StageSelectInitialize(system);
 
-	DeathEffectInitialze(p_alleffect);
-	TitleInitialize(p_gameobject,p_system);
-	UIInitialize(p_system);
-	SceneChangeInitialize(p_system);
+	DeathEffectInitialze(alleffect);
+	TitleInitialize(gameobject, system);
+	UIInitialize(system);
+	SceneChangeInitialize(system);
 
 
 	//ステージ情報の関数
-	teststage(p_gameobject);
+	teststage(gameobject);
 
 	//クリア画面の変数初期化
-	ClearSceneInitialize(p_system);
+	ClearSceneInitialize(system);
 
 	//音関連の読み込み
-	LoadAudio(p_audio);
+	LoadAudio(audio);
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -79,22 +79,22 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		Novice::BeginFrame();
 
 		// キー入力を受け取る
-		memcpy(key.preKeys, key.keys, 256);
-		Novice::GetHitKeyStateAll(key.keys);
+		memcpy(key->preKeys, key->keys, 256);
+		Novice::GetHitKeyStateAll(key->keys);
 
-		switch (system.scene) {
+		switch (system->scene) {
 		case Title:
 
 			// タイトルの処理の関数
-			TitleScene(p_key, p_system);
+			TitleScene(key, system);
 
 			// タイトルのステージの初期化
-			TitleStage(p_gameobject);
+			TitleStage(gameobject);
 
 			//四点の座標を取得
 			for (int i = 0; i < VerBlockNum; i++) {
 				for (int j = 0; j < HolBlockNum; j++) {
-					SetFourVertexes(&p_gameobject->MapChip[i][j]);
+					SetFourVertexes(&gameobject->MapChip[i][j]);
 				}
 			}
 
@@ -103,36 +103,36 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			===========================================*/
 
 			//四点の座標を取得
-			SetFourVertexes(&p_gameobject->buddy);
+			SetFourVertexes(&gameobject->buddy);
 
 			//相棒の動きの関数
-			BuddyMove(p_gameobject, p_system);
-			BuddyAnimation(p_gameobject);
+			BuddyMove(gameobject, system);
+			BuddyAnimation(gameobject);
 
 			/*===========================================
 						タイトルの音の処理
 			===========================================*/
-			TitleAudio(p_audio, p_key);
+			TitleAudio(audio, key);
 
 			// タイトルの描画処理
-			TitleDraw(p_system,p_gameobject);
+			TitleDraw(system, gameobject);
 
 			// 相棒の描画
-			BuddyDraw(p_gameobject);
+			BuddyDraw(gameobject);
 
-			
+
 
 			break;
 
 		case StageSelect:
 
-			StageselectUpdate(p_system, p_key, p_audio, p_gameobject);
-			DrawStageSelect(p_system, p_gameobject);
+			StageselectUpdate(system, key, audio, gameobject);
+			DrawStageSelect(system, gameobject);
 			/*===========================================
 						ステージセレクトの音の処理
 			===========================================*/
 
-			StageSelectAudio(p_audio, p_key);
+			StageSelectAudio(audio, key);
 
 
 			break;
@@ -144,7 +144,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 						ゲーム中の音の処理
 			===========================================*/
 			//if (!p_gameobject->buddy.IsClear) {
-				GameAudio(p_audio, p_key);
+			GameAudio(audio, key);
 			//}
 			/*else {
 				ClearAudio(p_audio, p_key);
@@ -164,99 +164,99 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			//PlayerGameInitialize(p_gameobject);
 
 			//四点の座標を取得
-			SetFourVertexes(&p_gameobject->player);
+			SetFourVertexes(&gameobject->player);
 
 			//プレイヤーの動きの関数
-			PlayerMove(p_gameobject, p_key);
+			PlayerMove(gameobject, key);
 
 			//色を付ける・回収する関数
-			ColorSystem(p_gameobject, p_key, p_audio);
+			ColorSystem(gameobject, key, audio);
 
 			//予測8マスを作る
-			Predicition8Block(p_gameobject);
+			Predicition8Block(gameobject);
 
 			// アニメーションの関数
-			PlayerAnimation(p_gameobject);
+			PlayerAnimation(gameobject);
 
 			/*===========================================
 						相棒の更新処理
 			===========================================*/
 
 			//四点の座標を取得
-			SetFourVertexes(&p_gameobject->buddy);
+			SetFourVertexes(&gameobject->buddy);
 
 			//相棒の動きの関数
-			BuddyMove(p_gameobject, p_system);
-			BuddyAnimation(p_gameobject);
+			BuddyMove(gameobject, system);
+			BuddyAnimation(gameobject);
 
 			/*===========================================
 						敵の更新処理
 			===========================================*/
 
-			for (int i = 0; i<10; ++i) {
+			for (int i = 0; i < 10; ++i) {
 
 				//四点の座標を取得
-				SetFourVertexes(&p_gameobject->enemy[i]);
+				SetFourVertexes(&gameobject->enemy[i]);
 
 			}
 
 			//相棒の動きの関数
-			EnemyMove(p_gameobject, p_audio);
+			EnemyMove(gameobject, audio);
 
 			/*===========================================
 						星の更新処理
 			===========================================*/
-			//StarMove(p_gameobject);
-			StarGet(p_gameobject, p_audio);
+			//StarMove(gameobject);
+			StarGet(gameobject, audio);
 
 			/*===========================================
 						ワープボックスの更新処理
 			===========================================*/
-			WarpBox(p_gameobject);
+			WarpBox(gameobject);
 
 			/*===========================================
 						ゴールの更新処理
 			===========================================*/
-			GoalMove(p_gameobject);
+			GoalMove(gameobject);
 
 			/*===========================================
 						ステージの更新処理
 			===========================================*/
 
 			//上の関数をまとめる関数
-			//StageGenerate(p_gameobject,p_system);
+			//StageGenerate(gameobject,system);
 
 			//四点の座標を取得
 			for (int i = 0; i < VerBlockNum; i++) {
 				for (int j = 0; j < HolBlockNum; j++) {
-					SetFourVertexes(&p_gameobject->MapChip[i][j]);
+					SetFourVertexes(&gameobject->MapChip[i][j]);
 				}
 			}
 
-			BlockAnimation(p_gameobject,p_key);
+			BlockAnimation(gameobject, key);
 
 
-			ClearScene(p_gameobject, p_key, p_system,p_audio);
+			ClearScene(gameobject, key, system, audio);
 
 
 			/*===========================================
 						UIの更新処理
 			===========================================*/
-			PlayUI(p_system, p_gameobject, p_key);
+			PlayUI(system, gameobject, key);
 
 
 			/*===========================================
 						エフェクトの更新処理
 			===========================================*/
-			CCEffect(p_alleffect, p_gameobject);
+			CCEffect(alleffect, gameobject);
 
-			DeathEffect(p_alleffect, p_gameobject);
+			DeathEffect(alleffect, gameobject);
 
 
 			/*===========================================
 						Rキーでリスタート
 			===========================================*/
-			//Restart(p_gameobject, p_key, p_system);
+			//Restart(gameobject, p_key, system);
 
 
 			///
@@ -271,56 +271,61 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			/*===========================================
 						ステージの描画処理
 			===========================================*/
-			StageDraw(p_gameobject);
+			StageDraw(gameobject);
 
 			/*===========================================
 						プレイヤーの描画処理
 			===========================================*/
-			PlayerDraw(p_gameobject);
-			PlayUIDraw(p_system);
+			PlayerDraw(gameobject);
+			PlayUIDraw(system);
 
 			/*===========================================
 						星の描画処理
 			===========================================*/
-			//StarDraw(p_gameobject);
+			//StarDraw(gameobject);
 
 			/*===========================================
 						相棒の描画処理
 			===========================================*/
-			BuddyDraw(p_gameobject);
+			BuddyDraw(gameobject);
 
 			/*===========================================
 						敵の描画処理
 			===========================================*/
-			EnemyDraw(p_gameobject);
+			EnemyDraw(gameobject);
 
 			/*===========================================
 						エフェクトの描画処理
 			===========================================*/
-        	DrawCCEffect(p_alleffect);
+			DrawCCEffect(alleffect);
 
 			//EffectDebugPrintf(p_alleffect);
 
-			DeathEffectDraw(p_alleffect);
+			DeathEffectDraw(alleffect);
 
 			/*===========================================
 						クリア画面の描画処理
 			===========================================*/
-			ClearSceneDraw(p_gameobject, p_system);
+			ClearSceneDraw(gameobject, system);
 
 
 			break;
 		}
 
 		//シーン遷移
-		RestartDraw(p_system);
-		SceneChangeFunction(p_system);
+		RestartDraw(system);
+		SceneChangeFunction(system);
 
 		// フレームの終了
 		Novice::EndFrame();
 
 		// ESCキーが押されたらループを抜ける
-		if (key.preKeys[DIK_ESCAPE] == 0 && key.keys[DIK_ESCAPE] != 0) {
+		if (key->preKeys[DIK_ESCAPE] == 0 && key->keys[DIK_ESCAPE] != 0) {
+			delete gameobject;
+			delete alleffect;
+			delete key;
+			delete system;
+			delete audio;
 			break;
 		}
 	}
