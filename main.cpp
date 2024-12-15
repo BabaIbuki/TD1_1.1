@@ -186,7 +186,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			SetFourVertexes(&gameobject->buddy);
 
 			//相棒の動きの関数
-			BuddyMove(gameobject, system);
+			//BuddyMove(gameobject, system);
 			BuddyAnimation(gameobject);
 
 			/*===========================================
@@ -201,7 +201,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			}
 
 			//相棒の動きの関数
-			EnemyMove(gameobject, audio);
+			//EnemyMove(gameobject, audio);
 
 			/*===========================================
 						星の更新処理
@@ -280,8 +280,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			/*===========================================
 						プレイヤーの描画処理
 			===========================================*/
-			PlayerDraw(gameobject);
-			PlayUIDraw(system);
+			//PlayerDraw(gameobject);
+			//PlayUIDraw(system);
 
 			/*===========================================
 						星の描画処理
