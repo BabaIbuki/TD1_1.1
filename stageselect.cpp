@@ -46,18 +46,18 @@ void StageSelectInitialize(System* system) {
 
 	system->stageselect.siobj[0].image = Novice::LoadTexture("./MyResources./stage./stage1New.png");
 	system->stageselect.siobj[1].image = Novice::LoadTexture("./MyResources./stage./stage2.png");
-	system->stageselect.siobj[2].image = Novice::LoadTexture("./MyResources./stage./stage3.png");
-	system->stageselect.siobj[3].image = Novice::LoadTexture("./MyResources./stage./stage4.png");
+	system->stageselect.siobj[2].image = Novice::LoadTexture("./MyResources./stage./stage3New.png");
+	system->stageselect.siobj[3].image = Novice::LoadTexture("./MyResources./stage./stage4New.png");
 	system->stageselect.siobj[4].image = Novice::LoadTexture("./MyResources./stage./stage5.png");
 	system->stageselect.siobj[5].image = Novice::LoadTexture("./MyResources./stage./stage6.png");
-	system->stageselect.siobj[6].image = Novice::LoadTexture("./MyResources./stage./stage8.png");
-	system->stageselect.siobj[7].image = Novice::LoadTexture("./MyResources./stage./stage7.png");
-	system->stageselect.siobj[8].image = Novice::LoadTexture("./MyResources./stage./stage11.png");
+	system->stageselect.siobj[6].image = Novice::LoadTexture("./MyResources./stage./stage7New.png");
+	system->stageselect.siobj[7].image = Novice::LoadTexture("./MyResources./stage./stage8New.png");
+	system->stageselect.siobj[8].image = Novice::LoadTexture("./MyResources./stage./stage9New.png");
 	system->stageselect.siobj[9].image = Novice::LoadTexture("./MyResources./stage./stage10.png");
-	system->stageselect.siobj[10].image = Novice::LoadTexture("./MyResources./stage./stage9.png");
-	system->stageselect.siobj[11].image = Novice::LoadTexture("./MyResources./stage./stage13.png");
-	system->stageselect.siobj[12].image = Novice::LoadTexture("./MyResources./stage./stage12.png");
-	system->stageselect.siobj[13].image = Novice::LoadTexture("./MyResources./stage./stage14.png");
+	system->stageselect.siobj[10].image = Novice::LoadTexture("./MyResources./stage./stage11New.png");
+	system->stageselect.siobj[11].image = Novice::LoadTexture("./MyResources./stage./stage12New.png");
+	system->stageselect.siobj[12].image = Novice::LoadTexture("./MyResources./stage./stage13New.png");
+	system->stageselect.siobj[13].image = Novice::LoadTexture("./MyResources./stage./stage14New.png");
 	system->stageselect.siobj[14].image = Novice::LoadTexture("./MyResources./stage./stage15.png");
 
 
