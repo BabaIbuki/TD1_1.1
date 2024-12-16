@@ -27,6 +27,7 @@ struct ObjectBaseInfo {
 	/*  座標・移動　に関する変数  */
 	Vector2 Pos;
 	Vector2 PrePos;
+	Vector2 virtualPos;
 	Vector2 Vector;
 	Vector2 Velocity;
 	Vector2 Acceleration;
