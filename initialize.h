@@ -12,7 +12,7 @@
 #include"common.h"
 #include"system.h"
 
-/*
-void Initialize(GameObject*go,Key* key);
-*/
+void Initialize(GameObject*go,System* system,Key* key);
+
+
 
