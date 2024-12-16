@@ -19,21 +19,25 @@ void Initialize(GameObject*go,System* system,Key* key) {
 	// Rキーが押されたら
 	if (key->keys[DIK_R] && !key->preKeys[DIK_R]) {
 
-		// ステージの状態をリセット
+		if (!go->buddy.IsClear) {
 
-		// ステージ
-		StageInitialize(go);
+			// ステージの状態をリセット
 
-		// プレイヤー
-		PlayerInitialize(go);
+			// ステージ
+			StageInitialize(go);
 
-		// 相棒
-		BuddyInitialize(go);
+			// プレイヤー
+			PlayerInitialize(go);
 
-		// 敵
-		EnemyInitialize(go);
+			// 相棒
+			BuddyInitialize(go);
 
-		StageGenerate(go, system);
+			// 敵
+			EnemyInitialize(go);
+
+			StageGenerate(go, system);
+
+		}
 
 	}
 
