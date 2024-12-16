@@ -6,7 +6,7 @@
 #include"enemy.h"
 #include"enum.h"
 #include"define.h"
-//#include "initialize.h"
+#include "initialize.h"
 #include"star.h"
 #include"structer.h"
 #include "title.h"
@@ -256,7 +256,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			/*===========================================
 						Rキーでリスタート
 			===========================================*/
-			//Restart(gameobject, p_key, system);
+
+			Initialize(gameobject, system,key);
 
 			if (key->keys[DIK_Q]) {
 				system->scene = StageSelect;

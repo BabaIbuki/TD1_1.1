@@ -13,8 +13,8 @@
 #include"common.h"
 #include"system.h"
 
-/*
-void Initialize(GameObject*go,Key* key) {
+
+void Initialize(GameObject*go,System* system,Key* key) {
 
 	// Rキーが押されたら
 	if (key->keys[DIK_R] && !key->preKeys[DIK_R]) {
@@ -33,23 +33,8 @@ void Initialize(GameObject*go,Key* key) {
 		// 敵
 		EnemyInitialize(go);
 
-		teststage(go);
-		//stage1(go);
-		//stage2(go);
-		//stage3(go);
-		//stage4(go);
-		//stage5(go);
-		//stage6(go);
-		//stage7(go);
-		//stage8(go);
-		//stage9(go);
-		//stage10(go);
-		//stage11(go);
-		//stage12(go);
-		//stage13(go);
-		//stage14(go);
-		//stage15(go);
+		StageGenerate(go, system);
 
 	}
 
-};*/
+}
