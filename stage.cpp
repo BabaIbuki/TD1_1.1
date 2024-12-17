@@ -657,7 +657,7 @@ void stage11(GameObject* go) {
 		1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,
 		1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,
 		1,3,3,3,3,3,3,3,2,3,3,5,3,3,3,3,3,3,1,
-		1,3,3,2,3,3,3,3,3,3,3,3,3,3,2,3,3,3,1,
+		1,3,3,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,
 		1,3,3,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,1,
 		1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,1,
 		1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,
@@ -710,19 +710,19 @@ void stage11(GameObject* go) {
 	//go->enemy[3].Pos.x = 11 * BLOCKSIZE + BLOCKSIZE / 2;
 	//go->enemy[3].Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	go->enemy[4].Pos.x = 11 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[4].Pos.y = 7 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[3].Pos.x = 11 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[3].Pos.y = 7 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	go->enemy[5].Pos.x = 14 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[5].Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+	//go->enemy[5].Pos.x = 14 * BLOCKSIZE + BLOCKSIZE / 2;
+	//go->enemy[5].Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	go->enemy[6].Pos.x = 15 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[6].Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[4].Pos.x = 15 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[4].Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	go->enemy[7].Pos.x = 16 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[7].Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[5].Pos.x = 16 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[5].Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	for (int i = 0; i < 8; ++i) {
+	for (int i = 0; i < 6; ++i) {
 		go->enemy[i].IsAlive = true;
 	}
 
@@ -1472,16 +1472,14 @@ void BlockAnimationAngleControl(GameObject* go, int y, int x) {
 			if (go->MapChip[y][x].DecreaseFlag) {
 				go->MapChip[y][x].degree -= 4;
 			}
-		}
-		else {
+		} else {
 			go->MapChip[y][x].degree = 0.0f;
 		}
-	} 
-	else {
+	} else {
 		go->MapChip[y][x].degree = 0.0f;
 		go->MapChip[y][x].theta = 0.0f;
 	}
-	
+
 	//角度の変換
 	go->MapChip[y][x].theta = (go->MapChip[y][x].degree / 180.0f) * 3.1415f;
 
@@ -1524,8 +1522,7 @@ void NewBlockAnimetion(GameObject* go, int y, int x) {
 				}
 
 			}
-		}
-		else {
+		} else {
 			go->MapChip[y][x].IncreaseFlag = false;
 			go->MapChip[y][x].DecreaseFlag = false;
 
