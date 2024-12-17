@@ -39,6 +39,9 @@ void StageDraw(GameObject* go);
 //ブロックのアニメーション（選択したとき）の角度を制御する関数
 void BlockAnimationAngleControl(GameObject* go, int y, int x);
 
+void NewBlockAnimetion(GameObject* go, int y, int x);
+
+
 //キー入力でアニメーションの情報リセット
 void InitializeBlockAnimation(GameObject* go, Key* key, int y, int x);
 

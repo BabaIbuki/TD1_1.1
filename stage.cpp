@@ -1472,16 +1472,80 @@ void BlockAnimationAngleControl(GameObject* go, int y, int x) {
 			if (go->MapChip[y][x].DecreaseFlag) {
 				go->MapChip[y][x].degree -= 4;
 			}
-		} else {
+		}
+		else {
 			go->MapChip[y][x].degree = 0.0f;
 		}
-	} else {
+	} 
+	else {
 		go->MapChip[y][x].degree = 0.0f;
 		go->MapChip[y][x].theta = 0.0f;
 	}
+	
 	//角度の変換
 	go->MapChip[y][x].theta = (go->MapChip[y][x].degree / 180.0f) * 3.1415f;
+
+
 }
+
+
+void NewBlockAnimetion(GameObject* go, int y, int x) {
+
+	//プレイヤーが選択しているブロックならば
+	if (go->player.select[y][x]) {
+
+		//角度を増減させるフラグが立っていなければ
+		if (!go->MapChip[y][x].IncreaseFlag && !go->MapChip[y][x].DecreaseFlag) {
+
+			go->MapChip[y][x].IncreaseFlag = true;
+			go->MapChip[y][x].DecreaseFlag = false;
+		}
+
+		if (go->MapChip[y][x].ShakeNum <= 2) {
+
+			if (go->MapChip[y][x].IncreaseFlag) {
+				go->MapChip[y][x].degree += 4;
+
+				if (go->MapChip[y][x].degree > 8.0f) {
+					go->MapChip[y][x].DecreaseFlag = true;
+					go->MapChip[y][x].IncreaseFlag = false;
+
+				}
+			}
+			if (go->MapChip[y][x].DecreaseFlag) {
+				go->MapChip[y][x].degree -= 4;
+
+				if (go->MapChip[y][x].degree < -8.0f) {
+
+					go->MapChip[y][x].DecreaseFlag = false;
+					go->MapChip[y][x].IncreaseFlag = true;
+
+					go->MapChip[y][x].ShakeNum++;
+				}
+
+			}
+		}
+		else {
+			go->MapChip[y][x].IncreaseFlag = false;
+			go->MapChip[y][x].DecreaseFlag = false;
+
+			go->MapChip[y][x].degree = 0.0f;
+
+		}
+	}
+	//選択されていなければフラグをすべて折る
+	else {
+		go->MapChip[y][x].IncreaseFlag = false;
+		go->MapChip[y][x].DecreaseFlag = false;
+
+		go->MapChip[y][x].degree = 0.0f;
+	}
+
+	//角度の変換
+	go->MapChip[y][x].theta = (go->MapChip[y][x].degree / 180.0f) * 3.1415f;
+
+}
+
 
 /*
 //キー入力でアニメーションの情報リセット
@@ -1523,12 +1587,15 @@ void BlockAnimation(GameObject* go, Key* key) {
 			//選択されているブロック振動（回転）
 
 				//角度の増減・変換
-			BlockAnimationAngleControl(go, i, j);
+			//BlockAnimationAngleControl(go, i, j);
 
+			if (go->MapChip[i][j].Map == 2 || go->MapChip[i][j].Map == 3) {
+				NewBlockAnimetion(go, i, j);
 
-			MakeRotatePos(&go->MapChip[i][j]);
+				MakeRotatePos(&go->MapChip[i][j]);
 
-			InitializeBlockAnimation(go, key, i, j);
+				InitializeBlockAnimation(go, key, i, j);
+			}
 		}
 	}
 }
