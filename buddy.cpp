@@ -361,7 +361,7 @@ void BuddyMove(GameObject* go, System* system) {
 			if (go->MapChip[static_cast<int>(go->buddy.Pos.y) / BLOCKSIZE][static_cast<int>(go->buddy.Pos.x) / BLOCKSIZE].Map == 5) {
 
 				go->buddy.IsClear = true;
-
+				system->IsClear[system->stageselect.select] = true;
 			}
 
 		}

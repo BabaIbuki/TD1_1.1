@@ -13,6 +13,3 @@
 #include"system.h"
 
 void Initialize(GameObject*go,System* system,Key* key);
-
-
-

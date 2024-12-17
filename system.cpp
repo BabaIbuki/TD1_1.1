@@ -8,6 +8,13 @@
 //初期化関数
 void SystemInitialize(System* system) {
 	system->scene = Title;
+
+
+	//クリア状況の変数の初期化
+	for (int i = 0; i < StageNum + 1; i++) {
+
+		system->IsClear[i] = false;
+	}
 }
 
 

@@ -242,6 +242,7 @@ struct SHAKE {
 	Vector2 Pos;
 	int flag;
 	int time;
+
 };
 
 /*============================================
@@ -358,6 +359,11 @@ struct StarImage :AllBaseInfo {
 
 };
 
+//「clear!」画像
+struct ClearImage :AllBaseInfo {
+
+};
+
 struct STAGESELECT {
 	//選択している番号
 	int select;
@@ -381,10 +387,16 @@ struct STAGESELECT {
 	PSJ psj;
 	BBG bbg[2];
 	StarImage starimage[StageNum];
+	ClearImage ci;
+
+
 };
 
 
 struct System {
+	//ステージがクリアされているかどうか
+	int IsClear[StageNum + 1];
+
 	//シーン管理用の変数
 	int scene;
 	int NextScene;
