@@ -17,6 +17,9 @@ void StageImageBackImageMovement(System* system);
 //「stage」画像と数字の画像
 void StageNumMovement(System* system);
 
+//「clear」画像の出す出さないを管理する関数
+void ClearImageFun(System* system);
+
 //背景の更新処理
 void BackGoundMovement(System* system);
 
