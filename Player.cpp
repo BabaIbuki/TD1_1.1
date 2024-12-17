@@ -100,49 +100,7 @@ void PlayerMove(GameObject* go, Key* key) {
 			go->player.MoveCoolTime = 0;
 			go->player.MoveFlag = false;
 		}
-		Novice::ScreenPrintf(20, 20, " % f", go->player.virtualPos.x);
-		Novice::ScreenPrintf(20, 40, " % f", go->player.Pos.x);
 	}
-
-	
-
-	//	go->player.PrePos = go->player.Pos;
-
-	//if (!go->buddy.IsClear) {
-	//	if (go->player.MoveCoolTime == 10) {
-	//		if (key->keys[DIK_W]) {
-	//			go->player.Pos.y -= BLOCKSIZE;
-	//			go->player.MoveFlag = true;
-	//		}
-	//		else if (key->keys[DIK_S]) {
-	//			go->player.Pos.y += BLOCKSIZE;
-	//			go->player.MoveFlag = true;
-	//		}
-	//		else if (key->keys[DIK_A]) {
-	//			go->player.Pos.x -= BLOCKSIZE;
-	//			go->player.MoveFlag = true;
-	//		}
-	//		else if (key->keys[DIK_D]) {
-	//			go->player.Pos.x += BLOCKSIZE;
-	//			go->player.MoveFlag = true;
-	//		}
-	//	}
-	//}
-
-	//if (go->player.MoveFlag) {
-	//	go->player.MoveCoolTime--;
-	//}
-	//if (go->player.MoveCoolTime <= 0) {
-	//	go->player.MoveCoolTime = 10;
-	//	go->player.MoveFlag = false;
-	//}
-
-	//if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].Map == 1
-	//	//|| go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].Map == 2
-	//	/* || go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].Map == 3*/) {
-	//	go->player.Pos = go->player.PrePos;
-	//}
-
 }
 
 
