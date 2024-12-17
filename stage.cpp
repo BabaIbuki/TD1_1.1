@@ -524,9 +524,9 @@ void stage8(GameObject* go) {
 	go->enemy[0].Pos.y = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->enemy[0].IsAlive = true;
 
-	go->enemy[1].Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[1].Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[1].IsAlive = true;
+	//go->enemy[1].Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
+	//go->enemy[1].Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+	//go->enemy[1].IsAlive = true;
 
 	go->enemy[2].Pos.x = 13 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->enemy[2].Pos.y = 3 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -652,8 +652,8 @@ void stage10(GameObject* go) {
 void stage11(GameObject* go) {
 	int map[VerBlockNum][HolBlockNum] = {
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		1,3,3,3,3,3,3,3,3,3,4,3,3,3,3,3,3,3,1,
-		1,3,4,3,3,3,2,3,3,3,3,2,3,3,3,3,2,3,1,
+		1,3,3,3,3,2,3,3,3,3,4,3,3,3,3,3,3,3,1,
+		1,3,4,3,3,3,3,3,3,3,3,3,3,3,3,3,2,3,1,
 		1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,
 		1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,
 		1,3,3,3,3,3,3,3,2,3,3,5,3,3,3,3,3,3,1,
@@ -701,14 +701,14 @@ void stage11(GameObject* go) {
 	go->enemy[0].Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->enemy[0].Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	go->enemy[1].Pos.x = 6 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[1].Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[1].Pos.x = 5 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[1].Pos.y = 1 * BLOCKSIZE + BLOCKSIZE / 2;
 
 	go->enemy[2].Pos.x = 8 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->enemy[2].Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	go->enemy[3].Pos.x = 11 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[3].Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
+	//go->enemy[3].Pos.x = 11 * BLOCKSIZE + BLOCKSIZE / 2;
+	//go->enemy[3].Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
 
 	go->enemy[4].Pos.x = 11 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->enemy[4].Pos.y = 7 * BLOCKSIZE + BLOCKSIZE / 2;
