@@ -86,6 +86,7 @@ void teststage(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 		}
 	}
@@ -132,6 +133,7 @@ void stage1(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -153,6 +155,13 @@ void stage1(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 8 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 }
 
@@ -183,6 +192,7 @@ void stage2(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -203,6 +213,13 @@ void stage2(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 }
 
@@ -232,6 +249,7 @@ void stage3(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -253,6 +271,13 @@ void stage3(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 }
 
@@ -282,6 +307,7 @@ void stage4(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -303,6 +329,13 @@ void stage4(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 }
 
@@ -332,6 +365,7 @@ void stage5(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -353,6 +387,13 @@ void stage5(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 }
 
 void stage6(GameObject* go) {
@@ -381,6 +422,7 @@ void stage6(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -402,6 +444,13 @@ void stage6(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 8 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 12 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -436,6 +485,7 @@ void stage7(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -457,6 +507,13 @@ void stage7(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 17 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -497,6 +554,7 @@ void stage8(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -518,6 +576,13 @@ void stage8(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 5 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -562,6 +627,7 @@ void stage9(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -583,6 +649,13 @@ void stage9(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -625,6 +698,7 @@ void stage10(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -646,6 +720,13 @@ void stage10(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 }
 
@@ -675,6 +756,7 @@ void stage11(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -696,6 +778,13 @@ void stage11(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -755,6 +844,7 @@ void stage12(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -776,6 +866,13 @@ void stage12(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 }
 
@@ -805,6 +902,7 @@ void stage13(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -826,6 +924,13 @@ void stage13(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 6 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -860,6 +965,7 @@ void stage14(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -881,6 +987,13 @@ void stage14(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 3 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 17 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -919,6 +1032,7 @@ void stage15(GameObject* go) {
 			} else {
 				go->MapChip[i][j].IsPaint = false;
 			}
+			go->MapChip[i][j].CanPaint = true;
 
 			// 星の取得状況をリセット
 			if (go->MapChip[i][j].Map == 4) {
@@ -940,6 +1054,13 @@ void stage15(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 3 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = false;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;
