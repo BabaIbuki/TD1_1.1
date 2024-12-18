@@ -50,6 +50,7 @@ void ClearScene(GameObject* go, Key* key, System* system,Audio*audio) {
 		for (int i = 0; i < VerBlockNum; i++) {
 			for (int j = 0; j < HolBlockNum; j++) {
 				go->MapChip[i][j].degree = 0.0f;
+				go->MapChip[i][j].theta = 0.0f;
 			}
 		}
 
