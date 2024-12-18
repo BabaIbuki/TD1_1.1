@@ -40,10 +40,6 @@ void StageSelectInitialize(System* system) {
 	system->stageselect.IncreaseFlag = false;
 
 	//画像の取り込み
-	
-	//ステージ入れ替え記録
-
-
 	system->stageselect.siobj[0].image = Novice::LoadTexture("./MyResources./stage./stage1New.png");
 	system->stageselect.siobj[1].image = Novice::LoadTexture("./MyResources./stage./stage2.png");
 	system->stageselect.siobj[2].image = Novice::LoadTexture("./MyResources./stage./stage3New.png");
@@ -119,7 +115,7 @@ void StageSelectInitialize(System* system) {
 	system->stageselect.bbg[1].image = Novice::LoadTexture("./MyResources./ClearBackUI.png");
 
 
-	//「stage」画像と数の画像
+	//「stage」画像と数の画像	
 	for (int i = 0; i < StageNum; i++) {
 		system->stageselect.si[i].Pos.y = 330.0f;
 		system->stageselect.sn[i].Pos.y = 330.0f;
@@ -141,7 +137,7 @@ void StageSelectInitialize(System* system) {
 	//星の画像
 	for (int i = 0; i < StageNum; i++) {
 
-		system->stageselect.starimage[i].Pos.y = 80.0f;
+		system->stageselect.starimage[i].Pos.y = 105.0f;
 
 		system->stageselect.starimage[i].width = (128.0f * 4.0f);
 		system->stageselect.starimage[i].height = 128.0f;
@@ -149,6 +145,21 @@ void StageSelectInitialize(System* system) {
 		system->stageselect.starimage[0].image = Novice::LoadTexture("./MyResources./GetStar.png");
 
 	}
+
+	//クリアしたかどうかの画像
+	system->stageselect.ci.image = Novice::LoadTexture("./MyResources./clear.png");
+
+	system->stageselect.ci.Pos.y = 380.0f;
+	system->stageselect.ci.Pos.x = 950.0f;
+
+	system->stageselect.ci.width = 300.0f;
+	system->stageselect.ci.height = 100.0f;
+
+	system->stageselect.ci.DrawWidth = 300.0f;
+	system->stageselect.ci.DrawHeight = 100.0f;
+
+	//角度
+	system->stageselect.ci.theta = (10.0f / 180.0f) * 3.1415f;
 }
 
 
@@ -302,8 +313,19 @@ void SSUIMovement(System* system) {
 
 }
 
-//「stage」画像
+//「clear」画像
+void ClearImageFun(System* system) {
+	//SetFourVertexes(&system->stageselect.ci);
+	DrawFourVertexes(&system->stageselect.ci);
+	MakeRotatePos(&system->stageselect.ci);
 
+	system->stageselect.ci.degree += 2;
+
+	//拡縮する
+	system->stageselect.ci.DrawWidth = sinf((system->stageselect.ci.degree / 180.0f) * 3.1415f) * 50 + 300.0f;
+	system->stageselect.ci.DrawHeight = sinf((system->stageselect.ci.degree / 180.0f) * 3.1415f) * 50 + 105.0f;
+
+}
 
 //セレクトを変えるだけ
 void StageselectUpdate(System* system, Key* key, Audio* audio, GameObject* go) {
@@ -323,6 +345,8 @@ void StageselectUpdate(System* system, Key* key, Audio* audio, GameObject* go) {
 	StageNumMovement(system);
 
 	StarImageMovement(system);
+
+	ClearImageFun(system);
 
 	int MaxNum = StageNum;
 
@@ -613,6 +637,39 @@ void DrawStageSelect(System* system, GameObject* go) {
 			//色
 			WHITE
 		);
+
+		//「clear」画像の描画
+		if (system->IsClear[system->stageselect.select] && system->stageselect.t == 0.0f && !system->stageselect.IncreaseFlag) {
+			Novice::DrawQuad(
+				int(system->stageselect.ci.Pos.x + system->stageselect.ci.BufRotateLeftTop.x),
+				int(system->stageselect.ci.Pos.y + system->stageselect.ci.BufRotateLeftTop.y),
+
+				//右上
+				int(system->stageselect.ci.Pos.x + system->stageselect.ci.BufRotateRightTop.x),
+				int(system->stageselect.ci.Pos.y + system->stageselect.ci.BufRotateRightTop.y),
+
+				//左下
+				int(system->stageselect.ci.Pos.x + system->stageselect.ci.BufRotateLeftBottom.x),
+				int(system->stageselect.ci.Pos.y + system->stageselect.ci.BufRotateLeftBottom.y),
+
+				//右下
+				int(system->stageselect.ci.Pos.x + system->stageselect.ci.BufRotateRightBottom.x),
+				int(system->stageselect.ci.Pos.y + system->stageselect.ci.BufRotateRightBottom.y),
+
+				//画像上の座標
+				0, 0,
+
+				//横幅、縦幅
+				300, 100,
+
+				//テクスチャハンドル
+				system->stageselect.ci.image,
+
+				//色
+				WHITE
+			);
+		}
+
 	}
 
 	//デバッグ

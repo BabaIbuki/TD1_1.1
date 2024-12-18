@@ -145,6 +145,11 @@ void stage1(GameObject* go) {
 	go->player.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 7 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
+
 	// 相棒の座標
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 8 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -190,6 +195,10 @@ void stage2(GameObject* go) {
 	// プレイヤーの座標
 	go->player.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 8 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
 
 	// 相棒の座標
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -236,6 +245,11 @@ void stage3(GameObject* go) {
 	go->player.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
+
 	// 相棒の座標
 	go->buddy.Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -280,6 +294,11 @@ void stage4(GameObject* go) {
 	// プレイヤーの座標
 	go->player.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
 
 	// 相棒の座標
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -326,6 +345,11 @@ void stage5(GameObject* go) {
 	go->player.Pos.x = 7 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
+
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -369,6 +393,11 @@ void stage6(GameObject* go) {
 	// プレイヤーの座標
 	go->player.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
 
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -419,6 +448,11 @@ void stage7(GameObject* go) {
 	// プレイヤーの座標
 	go->player.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
 
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -475,6 +509,11 @@ void stage8(GameObject* go) {
 	// プレイヤーの座標
 	go->player.Pos.x = 7 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
 
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -536,6 +575,11 @@ void stage9(GameObject* go) {
 	go->player.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
+
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -594,6 +638,11 @@ void stage10(GameObject* go) {
 	go->player.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 5 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
+
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -608,7 +657,7 @@ void stage11(GameObject* go) {
 		1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,
 		1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,
 		1,3,3,3,3,3,3,3,2,3,3,5,3,3,3,3,3,3,1,
-		1,3,3,2,3,3,3,3,3,3,3,3,3,3,2,3,3,3,1,
+		1,3,3,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,
 		1,3,3,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,1,
 		1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,1,
 		1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,
@@ -639,6 +688,11 @@ void stage11(GameObject* go) {
 	go->player.Pos.x = 5 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
+
 	// 相棒の座標
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -656,19 +710,19 @@ void stage11(GameObject* go) {
 	//go->enemy[3].Pos.x = 11 * BLOCKSIZE + BLOCKSIZE / 2;
 	//go->enemy[3].Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	go->enemy[4].Pos.x = 11 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[4].Pos.y = 7 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[3].Pos.x = 11 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[3].Pos.y = 7 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	go->enemy[5].Pos.x = 14 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[5].Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+	//go->enemy[5].Pos.x = 14 * BLOCKSIZE + BLOCKSIZE / 2;
+	//go->enemy[5].Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	go->enemy[6].Pos.x = 15 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[6].Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[4].Pos.x = 15 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[4].Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	go->enemy[7].Pos.x = 16 * BLOCKSIZE + BLOCKSIZE / 2;
-	go->enemy[7].Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[5].Pos.x = 16 * BLOCKSIZE + BLOCKSIZE / 2;
+	go->enemy[5].Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
 
-	for (int i = 0; i < 8; ++i) {
+	for (int i = 0; i < 6; ++i) {
 		go->enemy[i].IsAlive = true;
 	}
 
@@ -714,6 +768,11 @@ void stage12(GameObject* go) {
 	go->player.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 7 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
+
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -758,6 +817,11 @@ void stage13(GameObject* go) {
 	// プレイヤーの座標
 	go->player.Pos.x = 10 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
 
 	// 相棒の座標
 	go->buddy.Pos.x = 6 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -808,6 +872,11 @@ void stage14(GameObject* go) {
 	// プレイヤーの座標
 	go->player.Pos.x = 6 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 2 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
 
 	// 相棒の座標
 	go->buddy.Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -862,6 +931,11 @@ void stage15(GameObject* go) {
 	// プレイヤーの座標
 	go->player.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->player.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	go->player.virtualPos = go->player.Pos;
+	go->player.PrePos = go->player.Pos;
+	go->player.MoveCoolTime = 0;
+	go->player.MoveFlag = false;
 
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -1405,9 +1479,70 @@ void BlockAnimationAngleControl(GameObject* go, int y, int x) {
 		go->MapChip[y][x].degree = 0.0f;
 		go->MapChip[y][x].theta = 0.0f;
 	}
+
 	//角度の変換
 	go->MapChip[y][x].theta = (go->MapChip[y][x].degree / 180.0f) * 3.1415f;
+
+
 }
+
+
+void NewBlockAnimetion(GameObject* go, int y, int x) {
+
+	//プレイヤーが選択しているブロックならば
+	if (go->player.select[y][x]) {
+
+		//角度を増減させるフラグが立っていなければ
+		if (!go->MapChip[y][x].IncreaseFlag && !go->MapChip[y][x].DecreaseFlag) {
+
+			go->MapChip[y][x].IncreaseFlag = true;
+			go->MapChip[y][x].DecreaseFlag = false;
+		}
+
+		if (go->MapChip[y][x].ShakeNum <= 2) {
+
+			if (go->MapChip[y][x].IncreaseFlag) {
+				go->MapChip[y][x].degree += 4;
+
+				if (go->MapChip[y][x].degree > 8.0f) {
+					go->MapChip[y][x].DecreaseFlag = true;
+					go->MapChip[y][x].IncreaseFlag = false;
+
+				}
+			}
+			if (go->MapChip[y][x].DecreaseFlag) {
+				go->MapChip[y][x].degree -= 4;
+
+				if (go->MapChip[y][x].degree < -8.0f) {
+
+					go->MapChip[y][x].DecreaseFlag = false;
+					go->MapChip[y][x].IncreaseFlag = true;
+
+					go->MapChip[y][x].ShakeNum++;
+				}
+
+			}
+		} else {
+			go->MapChip[y][x].IncreaseFlag = false;
+			go->MapChip[y][x].DecreaseFlag = false;
+
+			go->MapChip[y][x].degree = 0.0f;
+
+		}
+	}
+	//選択されていなければフラグをすべて折る
+	else {
+		go->MapChip[y][x].IncreaseFlag = false;
+		go->MapChip[y][x].DecreaseFlag = false;
+
+		go->MapChip[y][x].degree = 0.0f;
+	}
+
+	//角度の変換
+	go->MapChip[y][x].theta = (go->MapChip[y][x].degree / 180.0f) * 3.1415f;
+
+}
+
 
 /*
 //キー入力でアニメーションの情報リセット
@@ -1449,12 +1584,15 @@ void BlockAnimation(GameObject* go, Key* key) {
 			//選択されているブロック振動（回転）
 
 				//角度の増減・変換
-			BlockAnimationAngleControl(go, i, j);
+			//BlockAnimationAngleControl(go, i, j);
 
+			if (go->MapChip[i][j].Map == 2 || go->MapChip[i][j].Map == 3) {
+				NewBlockAnimetion(go, i, j);
 
-			MakeRotatePos(&go->MapChip[i][j]);
+				MakeRotatePos(&go->MapChip[i][j]);
 
-			InitializeBlockAnimation(go, key, i, j);
+				InitializeBlockAnimation(go, key, i, j);
+			}
 		}
 	}
 }

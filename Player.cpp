@@ -24,7 +24,7 @@ void PlayerInitialize(GameObject* go) {
 	go->player.animCount = 0;
 
 	//動きの制限
-	go->player.MoveCoolTime = 10;
+	go->player.MoveCoolTime = 0;
 	go->player.MoveFlag = false;
 
 	go->player.predicitionBlockFrameCount = 0;
@@ -53,44 +53,53 @@ void PlayerInitialize(GameObject* go) {
 
 //プレイヤーの動きの関数（マップチップとの当たり判定も込みの可能性もあり）
 void PlayerMove(GameObject* go, Key* key) {
-	go->player.PrePos = go->player.Pos;
 
 	if (!go->buddy.IsClear) {
-		if (go->player.MoveCoolTime == 10) {
+		if (!go->player.MoveFlag) {
+			
+			go->player.virtualPos = go->player.Pos;
+			go->player.PrePos = go->player.Pos;
+
 			if (key->keys[DIK_W]) {
-				go->player.Pos.y -= BLOCKSIZE;
-				go->player.MoveFlag = true;
-			} else if (key->keys[DIK_S]) {
-				go->player.Pos.y += BLOCKSIZE;
-				go->player.MoveFlag = true;
-			} else if (key->keys[DIK_A]) {
-				go->player.Pos.x -= BLOCKSIZE;
-				go->player.MoveFlag = true;
+				go->player.virtualPos.y -= static_cast<float>(BLOCKSIZE);
+			}
+			else if (key->keys[DIK_S]) {
+				go->player.virtualPos.y += static_cast<float>(BLOCKSIZE);
+			}
+			else if (key->keys[DIK_A]) {
+				go->player.virtualPos.x -= static_cast<float>(BLOCKSIZE);
 				if (go->player.direction != LEFT) {
 					go->player.direction = LEFT;
 				}
-			} else if (key->keys[DIK_D]) {
-				go->player.Pos.x += BLOCKSIZE;
-				go->player.MoveFlag = true;
+			}
+			else if (key->keys[DIK_D]) {
+				go->player.virtualPos.x += static_cast<float>(BLOCKSIZE);
 				if (go->player.direction != RIGHT) {
 					go->player.direction = RIGHT;
 				}
 			}
 		}
-	}
+		if (go->player.virtualPos.x != go->player.Pos.x || go->player.virtualPos.y != go->player.Pos.y) {
+			if (go->MapChip[int(go->player.virtualPos.y) / BLOCKSIZE][int(go->player.virtualPos.x) / BLOCKSIZE].Map != 1) {
+				go->player.MoveFlag = true;
+			}
+			else {
+				go->player.virtualPos = go->player.PrePos;
+			}
+		}
+		if (go->player.MoveFlag) {
+			Vector2 Move;
+			Move.x = go->player.virtualPos.x - go->player.PrePos.x;
+			Move.y = go->player.virtualPos.y - go->player.PrePos.y;
+			go->player.Pos.x = static_cast<float>(EASE::InOutQuad(static_cast<double>(Move.x), static_cast<double>(go->player.PrePos.x), 10, static_cast<double>(go->player.MoveCoolTime)));
+			go->player.Pos.y = static_cast<float>(EASE::InOutQuad(static_cast<double>(Move.y), static_cast<double>(go->player.PrePos.y), static_cast<double>(10), static_cast<double>(go->player.MoveCoolTime)));
+			go->player.MoveCoolTime++;
+		}
 
-	if (go->player.MoveFlag) {
-		go->player.MoveCoolTime--;
-	}
-	if (go->player.MoveCoolTime <= 0) {
-		go->player.MoveCoolTime = 10;
-		go->player.MoveFlag = false;
-	}
-
-	if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].Map == 1
-		//|| go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].Map == 2
-		/* || go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].Map == 3*/) {
-		go->player.Pos = go->player.PrePos;
+		if (go->player.MoveCoolTime > 10) {
+			go->player.MoveCoolTime = 0;
+			go->player.MoveFlag = false;
+		}
 	}
 }
 

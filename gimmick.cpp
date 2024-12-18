@@ -481,13 +481,6 @@ void WarpBox(GameObject* go) {
 // ゴールの関数
 void GoalMove(GameObject* go) {
 
-	// 相棒が星に触れたら星を回収する
-	if (go->MapChip[static_cast<int>(go->buddy.Pos.y) / BLOCKSIZE][static_cast<int>(go->buddy.Pos.x) / BLOCKSIZE].Map == 5) {
-
-		go->buddy.IsClear=true;
-
-	}
-
 	for (int i = 0; i < VerBlockNum; ++i) {
 		for (int j = 0; j < HolBlockNum; ++j) {
 
