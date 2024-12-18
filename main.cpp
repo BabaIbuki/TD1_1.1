@@ -233,9 +233,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				}
 			}
 
-			if (!gameobject->buddy.IsClear) {
-				BlockAnimation(gameobject, key);
-			}
+			BlockAnimation(gameobject, key);
 
 			ClearScene(gameobject, key, system, audio);
 
