@@ -150,6 +150,13 @@ void stage1(GameObject* go) {
 	go->player.MoveCoolTime = 0;
 	go->player.MoveFlag = false;
 
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
+
 	// 相棒の座標
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 8 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -204,6 +211,13 @@ void stage2(GameObject* go) {
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
+
 }
 
 void stage3(GameObject* go) {
@@ -253,6 +267,13 @@ void stage3(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 }
 
@@ -304,6 +325,13 @@ void stage4(GameObject* go) {
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
+
 }
 
 void stage5(GameObject* go) {
@@ -353,6 +381,13 @@ void stage5(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 }
 
 void stage6(GameObject* go) {
@@ -402,6 +437,13 @@ void stage6(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 8 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 12 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -457,6 +499,13 @@ void stage7(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 17 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -518,6 +567,13 @@ void stage8(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 5 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -584,6 +640,13 @@ void stage9(GameObject* go) {
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
+
 	// 敵の座標
 	go->enemy[0].Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->enemy[0].Pos.y = 1 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -647,6 +710,13 @@ void stage10(GameObject* go) {
 	go->buddy.Pos.x = 4 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
+
 }
 
 void stage11(GameObject* go) {
@@ -696,6 +766,13 @@ void stage11(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 3 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -777,6 +854,13 @@ void stage12(GameObject* go) {
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 10 * BLOCKSIZE + BLOCKSIZE / 2;
 
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
+
 }
 
 void stage13(GameObject* go) {
@@ -826,6 +910,13 @@ void stage13(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 6 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 6 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -881,6 +972,13 @@ void stage14(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 3 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 17 * BLOCKSIZE + BLOCKSIZE / 2;
@@ -940,6 +1038,13 @@ void stage15(GameObject* go) {
 	// 相棒の座標
 	go->buddy.Pos.x = 9 * BLOCKSIZE + BLOCKSIZE / 2;
 	go->buddy.Pos.y = 3 * BLOCKSIZE + BLOCKSIZE / 2;
+
+	// 敵の初期化
+	for (int i = 0; i < 10; ++i) {
+		go->enemy[i].IsAlive = true;
+		go->enemy[i].Pos.x = 0.0f;
+		go->enemy[i].Pos.y = 0.0f;
+	}
 
 	// 敵の座標
 	go->enemy[0].Pos.x = 1 * BLOCKSIZE + BLOCKSIZE / 2;

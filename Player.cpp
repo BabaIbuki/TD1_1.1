@@ -114,240 +114,49 @@ void ColorSystem(GameObject* go, Key* key, Audio* audio) {
 			//SE
 			Novice::PlayAudio(audio->se.inversion, false, 1.0f);
 
-			//範囲内にオブジェクトがあれば色を塗れるフラグを折る
-			for (int i = 0; i < 10; i++) {
-				if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].Map == 2) {
-					if ((go->player.Pos.x - go->player.width / 2) < (go->buddy.Pos.x + go->buddy.width / 2) &&
-						(go->buddy.Pos.x - go->buddy.width / 2) < (go->player.Pos.x + go->player.width / 2) &&
-						(go->player.Pos.y - go->player.height / 2) < (go->buddy.Pos.y + go->buddy.height / 2) &&
-						(go->buddy.Pos.y - go->buddy.height / 2) < (go->player.Pos.y + go->player.height / 2)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].CanPaint = false;
-					} else if ((go->player.Pos.x - go->player.width / 2) < (go->enemy[i].Pos.x + go->enemy[i].width / 2) &&
-						(go->enemy[i].Pos.x - go->enemy[i].width / 2) < (go->player.Pos.x + go->player.width / 2) &&
-						(go->player.Pos.y - go->player.height / 2) < (go->enemy[i].Pos.y + go->enemy[i].height / 2) &&
-						(go->enemy[i].Pos.y - go->enemy[i].height / 2) < (go->player.Pos.y + go->player.height / 2)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].CanPaint = false;
+			// 周囲3*3のブロックに色をつけられるか判定
+			for (int i = -1; i < 2; ++i) {
+				for (int j = -1; j < 2; ++j) {
+					if (go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].Map == 2) {
+						for (int k = 0; k < 10; ++k) {
+							// 周囲にスライム君と敵がいなければ「CanPaint」フラグを立てる
+							if ((go->player.Pos.x + static_cast<float>(j * BLOCKSIZE) - go->player.width / 2) < (go->buddy.Pos.x + go->buddy.width / 2) &&
+								(go->buddy.Pos.x - go->buddy.width / 2) < (go->player.Pos.x + static_cast<float>(j * BLOCKSIZE) + go->player.width / 2) &&
+								(go->player.Pos.y + static_cast<float>(i * BLOCKSIZE) - go->player.height / 2) < (go->buddy.Pos.y + go->buddy.height / 2) &&
+								(go->buddy.Pos.y - go->buddy.height / 2) < (go->player.Pos.y + static_cast<float>(i * BLOCKSIZE) + go->player.height / 2)) {
+								go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].CanPaint = false;
+							} else if ((go->player.Pos.x + static_cast<float>(j * BLOCKSIZE) - go->player.width / 2) < (go->enemy[k].Pos.x + go->enemy[k].width / 2) &&
+								(go->enemy[k].Pos.x - go->enemy[k].width / 2) < (go->player.Pos.x + static_cast<float>(j * BLOCKSIZE) + go->player.width / 2) &&
+								(go->player.Pos.y + static_cast<float>(i * BLOCKSIZE) - go->player.height / 2) < (go->enemy[k].Pos.y + go->enemy[k].height / 2) &&
+								(go->enemy[k].Pos.y - go->enemy[k].height / 2) < (go->player.Pos.y + static_cast<float>(i * BLOCKSIZE) + go->player.height / 2)) {
+								go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].CanPaint = false;
+								break;
+							} else {
+								go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].CanPaint = true;
+							}
+						}
+
+					} else {
+						go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].CanPaint = false;
 					}
-					/*else {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].IsPaint = true;
-					}*/
-				} else {
-					go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].CanPaint = false;
-				}
-				if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].Map == 2) {
-					if ((go->player.Pos.x - go->player.width / 2) < (go->buddy.Pos.x + go->buddy.width / 2) &&
-						(go->buddy.Pos.x - go->buddy.width / 2) < (go->player.Pos.x + go->player.width / 2) &&
-						(go->player.Pos.y - go->player.height / 2 + BLOCKSIZE) < (go->buddy.Pos.y + go->buddy.height / 2) &&
-						(go->buddy.Pos.y - go->buddy.height / 2) < (go->player.Pos.y + go->player.height / 2 + BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].CanPaint = false;
-					} else if ((go->player.Pos.x - go->player.width / 2) < (go->enemy[i].Pos.x + go->enemy[i].width / 2) &&
-						(go->enemy[i].Pos.x - go->enemy[i].width / 2) < (go->player.Pos.x + go->player.width / 2) &&
-						(go->player.Pos.y - go->player.height / 2 + BLOCKSIZE) < (go->enemy[i].Pos.y + go->enemy[i].height / 2) &&
-						(go->enemy[i].Pos.y - go->enemy[i].height / 2) < (go->player.Pos.y + go->player.height / 2 + BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].CanPaint = false;
-					}
-					/*else {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].IsPaint = true;
-					}*/
-				} else {
-					go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].CanPaint = false;
-				}
-				if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE + 1].Map == 2) {
-					if ((go->player.Pos.x - go->player.width / 2 + BLOCKSIZE) < (go->buddy.Pos.x + go->buddy.width / 2) &&
-						(go->buddy.Pos.x - go->buddy.width / 2) < (go->player.Pos.x + go->player.width / 2 + BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2 + BLOCKSIZE) < (go->buddy.Pos.y + go->buddy.height / 2) &&
-						(go->buddy.Pos.y - go->buddy.height / 2) < (go->player.Pos.y + go->player.height / 2 + BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint = false;
-					} else if ((go->player.Pos.x - go->player.width / 2 + BLOCKSIZE) < (go->enemy[i].Pos.x + go->enemy[i].width / 2) &&
-						(go->enemy[i].Pos.x - go->enemy[i].width / 2) < (go->player.Pos.x + go->player.width / 2 + BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2 + BLOCKSIZE) < (go->enemy[i].Pos.y + go->enemy[i].height / 2) &&
-						(go->enemy[i].Pos.y - go->enemy[i].height / 2) < (go->player.Pos.y + go->player.height / 2 + BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint = false;
-					}
-					/*else {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE + 1].IsPaint = true;
-					}*/
-				} else {
-					go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint = false;
-				}
-				if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE - 1].Map == 2) {
-					if ((go->player.Pos.x - go->player.width / 2 - BLOCKSIZE) < (go->buddy.Pos.x + go->buddy.width / 2) &&
-						(go->buddy.Pos.x - go->buddy.width / 2) < (go->player.Pos.x + go->player.width / 2 - BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2 + BLOCKSIZE) < (go->buddy.Pos.y + go->buddy.height / 2) &&
-						(go->buddy.Pos.y - go->buddy.height / 2) < (go->player.Pos.y + go->player.height / 2 + BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint = false;
-					} else if ((go->player.Pos.x - go->player.width / 2 - BLOCKSIZE) < (go->enemy[i].Pos.x + go->enemy[i].width / 2) &&
-						(go->enemy[i].Pos.x - go->enemy[i].width / 2) < (go->player.Pos.x + go->player.width / 2 - BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2 + BLOCKSIZE) < (go->enemy[i].Pos.y + go->enemy[i].height / 2) &&
-						(go->enemy[i].Pos.y - go->enemy[i].height / 2) < (go->player.Pos.y + go->player.height / 2 + BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint = false;
-					}
-					/*else {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE - 1].IsPaint = true;
-					}*/
-				} else {
-					go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint = false;
-				}
-				if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE - 1].Map == 2) {
-					if ((go->player.Pos.x - go->player.width / 2 - BLOCKSIZE) < (go->buddy.Pos.x + go->buddy.width / 2) &&
-						(go->buddy.Pos.x - go->buddy.width / 2) < (go->player.Pos.x + go->player.width / 2 - BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2) < (go->buddy.Pos.y + go->buddy.height / 2) &&
-						(go->buddy.Pos.y - go->buddy.height / 2) < (go->player.Pos.y + go->player.height / 2)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint = false;
-					} else if ((go->player.Pos.x - go->player.width / 2 - BLOCKSIZE) < (go->enemy[i].Pos.x + go->enemy[i].width / 2) &&
-						(go->enemy[i].Pos.x - go->enemy[i].width / 2) < (go->player.Pos.x + go->player.width / 2 - BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2) < (go->enemy[i].Pos.y + go->enemy[i].height / 2) &&
-						(go->enemy[i].Pos.y - go->enemy[i].height / 2) < (go->player.Pos.y + go->player.height / 2)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint = false;
-					}
-					/*else {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE - 1].IsPaint = true;
-					}*/
-				} else {
-					go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint = false;
-				}
-				if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE + 1].Map == 2) {
-					if ((go->player.Pos.x - go->player.width / 2 + BLOCKSIZE) < (go->buddy.Pos.x + go->buddy.width / 2) &&
-						(go->buddy.Pos.x - go->buddy.width / 2) < (go->player.Pos.x + go->player.width / 2 + BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2) < (go->buddy.Pos.y + go->buddy.height / 2) &&
-						(go->buddy.Pos.y - go->buddy.height / 2) < (go->player.Pos.y + go->player.height / 2)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint = false;
-					} else if ((go->player.Pos.x - go->player.width / 2 + BLOCKSIZE) < (go->enemy[i].Pos.x + go->enemy[i].width / 2) &&
-						(go->enemy[i].Pos.x - go->enemy[i].width / 2) < (go->player.Pos.x + go->player.width / 2 + BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2) < (go->enemy[i].Pos.y + go->enemy[i].height / 2) &&
-						(go->enemy[i].Pos.y - go->enemy[i].height / 2) < (go->player.Pos.y + go->player.height / 2)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint = false;
-					}
-					/*else {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE + 1].IsPaint = true;
-					}*/
-				} else {
-					go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint = false;
-				}
-				if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE - 1].Map == 2) {
-					if ((go->player.Pos.x - go->player.width / 2 - BLOCKSIZE) < (go->buddy.Pos.x + go->buddy.width / 2) &&
-						(go->buddy.Pos.x - go->buddy.width / 2) < (go->player.Pos.x + go->player.width / 2 - BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2 - BLOCKSIZE) < (go->buddy.Pos.y + go->buddy.height / 2) &&
-						(go->buddy.Pos.y - go->buddy.height / 2) < (go->player.Pos.y + go->player.height / 2 - BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint = false;
-					} else if ((go->player.Pos.x - go->player.width / 2 - BLOCKSIZE) < (go->enemy[i].Pos.x + go->enemy[i].width / 2) &&
-						(go->enemy[i].Pos.x - go->enemy[i].width / 2) < (go->player.Pos.x + go->player.width / 2 - BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2 - BLOCKSIZE) < (go->enemy[i].Pos.y + go->enemy[i].height / 2) &&
-						(go->enemy[i].Pos.y - go->enemy[i].height / 2) < (go->player.Pos.y + go->player.height / 2 - BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint = false;
-					}
-					/*else {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE - 1].IsPaint = true;
-					}*/
-				} else {
-					go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint = false;
-				}
-				if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE].Map == 2) {
-					if ((go->player.Pos.x - go->player.width / 2) < (go->buddy.Pos.x + go->buddy.width / 2) &&
-						(go->buddy.Pos.x - go->buddy.width / 2) < (go->player.Pos.x + go->player.width / 2) &&
-						(go->player.Pos.y - go->player.height / 2 - BLOCKSIZE) < (go->buddy.Pos.y + go->buddy.height / 2) &&
-						(go->buddy.Pos.y - go->buddy.height / 2) < (go->player.Pos.y + go->player.height / 2 - BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE].CanPaint = false;
-					} else if ((go->player.Pos.x - go->player.width / 2) < (go->enemy[i].Pos.x + go->enemy[i].width / 2) &&
-						(go->enemy[i].Pos.x - go->enemy[i].width / 2) < (go->player.Pos.x + go->player.width / 2) &&
-						(go->player.Pos.y - go->player.height / 2 - BLOCKSIZE) < (go->enemy[i].Pos.y + go->enemy[i].height / 2) &&
-						(go->enemy[i].Pos.y - go->enemy[i].height / 2) < (go->player.Pos.y + go->player.height / 2 - BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE].CanPaint = false;
-					}
-					/*else {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE].IsPaint = true;
-					}*/
-				} else {
-					go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE].CanPaint = false;
-				}
-				if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE + 1].Map == 2) {
-					if ((go->player.Pos.x - go->player.width / 2 + BLOCKSIZE) < (go->buddy.Pos.x + go->buddy.width / 2) &&
-						(go->buddy.Pos.x - go->buddy.width / 2) < (go->player.Pos.x + go->player.width / 2 + BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2 - BLOCKSIZE) < (go->buddy.Pos.y + go->buddy.height / 2) &&
-						(go->buddy.Pos.y - go->buddy.height / 2) < (go->player.Pos.y + go->player.height / 2 - BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint = false;
-					} else if ((go->player.Pos.x - go->player.width / 2 + BLOCKSIZE) < (go->enemy[i].Pos.x + go->enemy[i].width / 2) &&
-						(go->enemy[i].Pos.x - go->enemy[i].width / 2) < (go->player.Pos.x + go->player.width / 2 + BLOCKSIZE) &&
-						(go->player.Pos.y - go->player.height / 2 - BLOCKSIZE) < (go->enemy[i].Pos.y + go->enemy[i].height / 2) &&
-						(go->enemy[i].Pos.y - go->enemy[i].height / 2) < (go->player.Pos.y + go->player.height / 2 - BLOCKSIZE)) {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint = false;
-					}
-					/*else {
-						go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE + 1].IsPaint = true;
-					}*/
-				} else {
-					go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint = false;
+
+
 				}
 			}
 
-			//色を塗れるフラグがtrueなら色を付けるフラグを立てる
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].CanPaint) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].IsPaint = true;
+			// ブロックの色を変更する
+			for (int i = -1; i < 2; ++i) {
+				for (int j = -1; j < 2; ++j) {
+					if (go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].Map == 3) {
+						go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].IsPaint = false;
+						go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].Map = 2;
+					} else if (go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].Map == 2) {
+						if (go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].CanPaint) {
+							go->MapChip[static_cast<int>(go->player.Pos.y) / BLOCKSIZE + i][static_cast<int>(go->player.Pos.x) / BLOCKSIZE + j].IsPaint = true;
+						}
+					}
+				}
 			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].CanPaint) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].IsPaint = true;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE + 1].IsPaint = true;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE - 1].IsPaint = true;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE - 1].IsPaint = true;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE + 1].IsPaint = true;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE - 1].CanPaint) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE - 1].IsPaint = true;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE].CanPaint) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE].IsPaint = true;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE + 1].CanPaint) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE + 1].IsPaint = true;
-			}
-
-
-			//回収
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].Map == 3) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE].IsPaint = false;
-				//go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].Map = 2;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].Map == 3) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].IsPaint = false;
-				//go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE].Map = 2;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE + 1].Map == 3) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE + 1].IsPaint = false;
-				//go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE + 1].Map = 2;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE - 1].Map == 3) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE - 1].IsPaint = false;
-				//go->MapChip[int(go->player.Pos.y) / BLOCKSIZE + 1][int(go->player.Pos.x) / BLOCKSIZE - 1].Map = 2;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE - 1].Map == 3) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE - 1].IsPaint = false;
-				//go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE - 1].Map = 2;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE + 1].Map == 3) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE + 1].IsPaint = false;
-				//go->MapChip[int(go->player.Pos.y) / BLOCKSIZE][int(go->player.Pos.x) / BLOCKSIZE + 1].Map = 2;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE - 1].Map == 3) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE - 1].IsPaint = false;
-				//go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE - 1].Map = 2;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE].Map == 3) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE].IsPaint = false;
-				//go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE].Map = 2;
-			}
-			if (go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE + 1].Map == 3) {
-				go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE + 1].IsPaint = false;
-				//go->MapChip[int(go->player.Pos.y) / BLOCKSIZE - 1][int(go->player.Pos.x) / BLOCKSIZE + 1].Map = 2;
-			}
-
 		}
 
 		//IsPaintがtrueだったらマップ番号を変更
