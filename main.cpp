@@ -257,7 +257,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 						Rキーでリスタート
 			===========================================*/
 
-			Initialize(gameobject, system,key);
+			//Initialize(gameobject, system,key);
 
 			if (key->keys[DIK_Q]) {
 				system->scene = StageSelect;
