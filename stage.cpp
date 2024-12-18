@@ -1594,58 +1594,69 @@ void BlockAnimationAngleControl(GameObject* go, int y, int x) {
 
 void NewBlockAnimetion(GameObject* go, int y, int x) {
 
-	//プレイヤーが選択しているブロックならば
-	if (go->player.select[y][x]) {
+	if (!go->buddy.IsClear) {
 
-		//角度を増減させるフラグが立っていなければ
-		if (!go->MapChip[y][x].IncreaseFlag && !go->MapChip[y][x].DecreaseFlag) {
+		//プレイヤーが選択しているブロックならば
+		if (go->player.select[y][x]) {
 
-			go->MapChip[y][x].IncreaseFlag = true;
-			go->MapChip[y][x].DecreaseFlag = false;
+			//角度を増減させるフラグが立っていなければ
+			if (!go->MapChip[y][x].IncreaseFlag && !go->MapChip[y][x].DecreaseFlag) {
+
+				go->MapChip[y][x].IncreaseFlag = true;
+				go->MapChip[y][x].DecreaseFlag = false;
+			}
+
+			if (go->MapChip[y][x].ShakeNum <= 2) {
+
+				if (go->MapChip[y][x].IncreaseFlag) {
+					go->MapChip[y][x].degree += 4;
+
+					if (go->MapChip[y][x].degree > 8.0f) {
+						go->MapChip[y][x].DecreaseFlag = true;
+						go->MapChip[y][x].IncreaseFlag = false;
+
+					}
+				}
+				if (go->MapChip[y][x].DecreaseFlag) {
+					go->MapChip[y][x].degree -= 4;
+
+					if (go->MapChip[y][x].degree < -8.0f) {
+
+						go->MapChip[y][x].DecreaseFlag = false;
+						go->MapChip[y][x].IncreaseFlag = true;
+
+						go->MapChip[y][x].ShakeNum++;
+					}
+
+				}
+			}
+			else {
+				go->MapChip[y][x].IncreaseFlag = false;
+				go->MapChip[y][x].DecreaseFlag = false;
+
+				go->MapChip[y][x].degree = 0.0f;
+
+			}
 		}
-
-		if (go->MapChip[y][x].ShakeNum <= 2) {
-
-			if (go->MapChip[y][x].IncreaseFlag) {
-				go->MapChip[y][x].degree += 4;
-
-				if (go->MapChip[y][x].degree > 8.0f) {
-					go->MapChip[y][x].DecreaseFlag = true;
-					go->MapChip[y][x].IncreaseFlag = false;
-
-				}
-			}
-			if (go->MapChip[y][x].DecreaseFlag) {
-				go->MapChip[y][x].degree -= 4;
-
-				if (go->MapChip[y][x].degree < -8.0f) {
-
-					go->MapChip[y][x].DecreaseFlag = false;
-					go->MapChip[y][x].IncreaseFlag = true;
-
-					go->MapChip[y][x].ShakeNum++;
-				}
-
-			}
-		} else {
+		//選択されていなければフラグをすべて折る
+		else {
 			go->MapChip[y][x].IncreaseFlag = false;
 			go->MapChip[y][x].DecreaseFlag = false;
 
 			go->MapChip[y][x].degree = 0.0f;
-
 		}
 	}
-	//選択されていなければフラグをすべて折る
+	//クリアシーンになったら
 	else {
 		go->MapChip[y][x].IncreaseFlag = false;
 		go->MapChip[y][x].DecreaseFlag = false;
 
 		go->MapChip[y][x].degree = 0.0f;
+		go->MapChip[y][x].theta = 0.0f;
 	}
 
 	//角度の変換
 	go->MapChip[y][x].theta = (go->MapChip[y][x].degree / 180.0f) * 3.1415f;
-
 }
 
 
