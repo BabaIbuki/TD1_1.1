@@ -160,6 +160,7 @@ void StageSelectInitialize(System* system) {
 
 	//角度
 	system->stageselect.ci.theta = (10.0f / 180.0f) * 3.1415f;
+	system->stageselect.ci.degree = 0.0f;
 }
 
 
